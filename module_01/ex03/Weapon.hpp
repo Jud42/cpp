@@ -6,15 +6,16 @@
 class	Weapon
 {
 	public:
-		//interface methods
 		Weapon() {} 
 		Weapon(std::string type); 
+
 			//getters
 		const std::string& getType() const;
 			//setters
 		void setType(std::string type);
+
 	private:
-		std::string type_;
+		std::string type;
 };
 
 #endif

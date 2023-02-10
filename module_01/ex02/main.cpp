@@ -7,14 +7,14 @@ int	main()
 	std::string ref = var;
 	
 	//memory addr var
-	std::cout << "the memory address of the string variable: "; 
 	std::cout << &var << std::endl;
-
 	//memory addr held by ptr	
-	std::cout << "the memory address held by stingPTR: "; 
 	std::cout << ptr << std::endl;
-
 	//memory addr held by ref
-	std::cout << "the memory address held by stringREF: "; 
-	std::cout << &var << std::endl;
+	std::cout << &ref << std::endl;
+
+	//value each var
+	std::cout << var << std::endl;
+	std::cout << *ptr << std::endl;
+	std::cout << var << std::endl;
 }

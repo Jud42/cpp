@@ -5,8 +5,8 @@ int	main()
 	PhoneBook	p;
 	std::string	input;
 
-	std::cout << "Enter one of these commands: 1.ADD 2.SEARCH 3.EXIT" \
-	<< std::endl;
+	std::cout << "Enter one of these commands: 1.ADD 2.SEARCH 3.EXIT";
+	std::cout << std::endl;
 	while (1)
 	{
 		std::cin >> input;

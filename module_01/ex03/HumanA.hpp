@@ -6,13 +6,14 @@
 class HumanA
 {
 	public:
-		//interface methods
 		HumanA(std::string name, Weapon &wp);
+
+		//getters
 		void attack();
-		
-		//attributs	
-		Weapon &weap_;
-		std::string name_;
+
+	private:
+		Weapon &weapon;
+		std::string name;
 };
 
 #endif

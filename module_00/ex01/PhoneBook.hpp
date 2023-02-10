@@ -1,20 +1,25 @@
 #ifndef _PHONEBOOK_
  # define _PHONEBOOK_
 
-class PhoneBook{
+#include <iomanip>
+#include "Contact.hpp"
+#include "main.h"
+
+class PhoneBook {
 	public:
-		PhoneBook()
-		{
-			for (int i = 0; i < 8; i++)
-				contact[i] = nullptr;
-			index = 0;
-		}
+
+		PhoneBook() : _index(0) {}
 		void	add_();
 		void	search_() const;
 		void	exit_();
+		~PhoneBook() {}
+
 	private:
-		Contact*	contact[8];
-		int		index;
+
+		void print_contact(int i) const;
+
+		Contact	_contact[8];
+		int		_index;
 };
 
 #endif

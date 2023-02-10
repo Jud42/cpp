@@ -6,14 +6,17 @@
 class HumanB
 {
 	public:
-		//interface methods
-		HumanB(std::string name);
-		HumanB(std::string name, Weapon wp); 
-		void setWeapon(Weapon wp);
+		HumanB(std::string name, const Weapon &wp=Weapon())
+			: name(name), weapon(&wp) {}
+
+		//setters
+		void setWeapon(const Weapon &wp);
+		//getters
 		void attack();
-		//attributs
-		Weapon weap_;
-		std::string name_;
+
+	private:
+		const Weapon *weapon;
+		std::string name;
 };
 
 #endif

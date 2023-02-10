@@ -1,22 +1,25 @@
 
-NAME = My_Awesom_PhoneBook
+NAME = Harl
 
 SRC = $(wildcard ./*.cpp)
 
 CC = c++ -std=c++98
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -g -Wall -Wextra -Werror
 
 RM = rm -rf
 
 OBJ = $(SRC:%.cpp=%.o)
 
-all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CC) $(FLAGS) $^ -o $@
+	$(RM) $(OBJ)
+
+all : $(NAME)
+
 clean :
-	$(RM) *.o
+	$(RM) $(OBJ)
 
 fclean : clean
 	$(RM) $(NAME)
