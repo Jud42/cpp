@@ -16,18 +16,20 @@ void	PhoneBook::add_() {
 }
 		
 void	PhoneBook::print_contact(int i) const {
+	
+	const int	raw_w = 10;
+	std::cout << std::setw(raw_w) << std::right << "Index" << "|"
+        << std::setw(raw_w) << std::right << "First Name" << "|"
+        << std::setw(raw_w) << std::right << "Last Name" << "|"
+        << std::setw(raw_w) << std::right << "Nick Name" << std::endl;
 
-	std::cout << " index  |first name| last name | nick name " << std::endl;
-	std::cout << " ----------------------------------------- " << std::endl; 
-	std::cout.unsetf(std::ios::adjustfield);
-	std::cout << std::setw(10) << i << std::setw(3) << " | ";
+	std::cout << std::setw(raw_w) << std::setiosflags(std::ios::fixed) 
+	<< std::setprecision(0) << std::setiosflags(std::ios::right) << 1 << "|";
 	for (int j = 0; j < 3; j++) {
-		std::string tmp = _contact[i].getInfo(j);
-		if (tmp.length() > 10)
-					std::cout << std::setw(10) << tmp.substr(0, 9) + ".";		
-		else
-			std::cout << std::setw(10) << tmp;
-		std::cout << std::setw(3) << " | ";
+
+	std::string tmp = _contact[i].getInfo(j);
+        std::cout << std::setw(raw_w) << std::right 
+	<< (tmp.length() > raw_w - 1 ? tmp.substr(0, raw_w - 1) + "." : tmp) << "|";
 	}
 	std::cout << std::endl;
 

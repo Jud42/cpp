@@ -15,25 +15,15 @@ std::string	Contact::getInfo(int n) const {
 
 void	Contact::setContact() {
 	
-	//std::ios::sync_with_stdio(true);
 	std::string	argument[5] = {"First name: ", "Last name: ", "Nick name: ",\
-	   	"Phone number: ", "Darkest secret: "};
+	   "Phone number: ", "Darkest secret: "};
 	for (int i = 0; i < 5; i++) {
 
+		_info[i].clear();	
 		std::cout << argument[i];
-		//std::cin >> _info[i];	
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		//while (std::cin.get() != '\n');
-		std::getline(std::cin, _info[i]);
-		std::cin.clear();
-		while (_info[i] == "") {
+		while (_info[i].empty()) {
 
-			std::cout << "Error: missing information" << std::endl;
-			std::cout << argument[i];
-			//std::cin >> _info[i];
 			std::getline(std::cin, _info[i]);
-			std::cin.clear();
 		}
-		//std::cin.unsetf(std::ios::adjustfield | std::ios::basefield | std::ios::floatfield);
 	}
 }
