@@ -1,26 +1,41 @@
-NAME = megaphone
+#**************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rmamison <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/02/20 17:22:52 by rmamison          #+#    #+#              #
+#    Updated: 2023/02/22 16:15:51 by rmamison         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC = c++ -std=c++98
+NAME = Mega
 
-FLAGS = -Wall -Wextra -Werror
+SRC = $(wildcard ./*.cpp)
 
-SRC = megaphone.cpp
+CC = c++ 
+
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
 OBJ = $(SRC:%.cpp=%.o)
 
-all: $(NAME)
+all : $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $@
+%.o : %.cpp
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-clean: 
-	$(RM) *.o
+$(NAME) : $(OBJ)
+	$(CC) $^ -o $@
 
-re: fclean $(NAME)
+clean :
+	$(RM) $(OBJ)
 
-fclean: clean
+fclean : clean
 	$(RM) $(NAME)
+
+re : fclean $(NAME)
 
 .PHONY: all clean fclean re

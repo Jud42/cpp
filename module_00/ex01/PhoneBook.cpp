@@ -1,4 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/20 17:23:33 by rmamison          #+#    #+#             */
+/*   Updated: 2023/02/22 14:26:29 by rmamison         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
+
+PhoneBook::PhoneBook() : _index(0) {}
+PhoneBook::~PhoneBook() {}
 
 void	PhoneBook::add_() {
 
@@ -24,35 +39,45 @@ void	PhoneBook::print_contact(int i) const {
         << std::setw(raw_w) << std::right << "Nick Name" << std::endl;
 
 	std::cout << std::setw(raw_w) << std::setiosflags(std::ios::fixed) 
-	<< std::setprecision(0) << std::setiosflags(std::ios::right) << 1 << "|";
+	<< std::setprecision(0) << std::setiosflags(std::ios::right) << i + 1 << "|";
 	for (int j = 0; j < 3; j++) {
 
 	std::string tmp = _contact[i].getInfo(j);
         std::cout << std::setw(raw_w) << std::right 
-	<< (tmp.length() > raw_w - 1 ? tmp.substr(0, raw_w - 1) + "." : tmp) << "|";
+	<< (tmp.length() > raw_w ? tmp.substr(0, raw_w - 1) + "." : tmp) << "|";
 	}
 	std::cout << std::endl;
 
 }
 
-void	PhoneBook::search_() const
-{
-	int input;
+void	PhoneBook::search_() const {
+	
+	std::string input;
 
+	if (!_index) {
+		std::cout << "Empty contact" << std::endl;
+		return ;
+	}
 	for (int i = 0; i < _index; i++)
 		print_contact(i);
 
 	std::cout << "Index contact: ";
-	if(std::cin >> input) {
-		
-		if (input > 8 || input < 1)
-			std::cerr << "Error: Phonebook contains 8 contact 1-8" << std::endl;
-		else if (input > _index) 	
-			std::cout << "contact: [" << input << "] doesn't exist"; 
-		else 
-			print_contact(input - 1);
-		std::cout << std::endl;
+	if (!(std::cin >> input)) {
+		std::cout << "exit" << std::endl;
+		exit (0);
 	}
+
+	if (std::isdigit(input[0])) {
+		
+		int	digit = std::stoi(input);
+		if (digit > _index || digit < 1) 	
+			std::cout << "Error: Index non valid" << std::endl; 
+		else 
+			for (int j = 0; j < 5; j++)
+				std::cout << _contact[digit - 1].getInfo(j) << std::endl;
+	} 
+	else
+		std::cout << "Error: Index non valid" << std::endl;
 }
 
 void	PhoneBook::exit_() { exit(0); }

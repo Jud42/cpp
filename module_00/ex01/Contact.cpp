@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/20 17:22:20 by rmamison          #+#    #+#             */
+/*   Updated: 2023/02/22 14:31:20 by rmamison         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
 
 Contact::Contact() {
@@ -23,7 +35,19 @@ void	Contact::setContact() {
 		std::cout << argument[i];
 		while (_info[i].empty()) {
 
-			std::getline(std::cin, _info[i]);
+			if (!(std::getline(std::cin, _info[i]))) {
+					std::cin.clear();
+					std::cout << "exit" << std::endl;
+					exit (0);
+			}
+			if (argument[i] == "Phone number: ")
+				for (int j = 0; _info[i][j]; j++)
+					if (std::isalpha(_info[i][j])) {
+						
+						std::cout << "Error: Format number must be in digit" << std::endl; 
+						_info[i].clear();
+						break ;
+					}
 		}
 	}
 }
