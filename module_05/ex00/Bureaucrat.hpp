@@ -10,15 +10,18 @@ class Bureaucrat {
 
 public:
     Bureaucrat();
-    Bureaucrat(const Bureaucrat &src)
-    Bureaucrat & operator=( const Bureaucrat &rhs )
+    Bureaucrat(const std::string& name, int grade);
+    Bureaucrat(const Bureaucrat &src);
+    Bureaucrat & operator=(const Bureaucrat &rhs );
     virtual ~Bureaucrat();
 
     const std::string &getName() const;
     int getGrade() const;
+    void riseGrade();
+    void deGrade();
 
 private:
-    const std::string _name;
+    std::string _name;
     int _grade;
 };
 
