@@ -1,7 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rmamison <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/03/03 17:56:39 by rmamison          #+#    #+#              #
+#    Updated: 2023/03/03 18:40:18 by rmamison         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-NAME = HI_THIS_IS_BRAIN
+NAME = Brain
 
-SRC = main.cpp
+SRC = $(wildcard ./*.cpp)
 
 CC = c++ -std=c++98
 
@@ -13,10 +24,12 @@ OBJ = $(SRC:%.cpp=%.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	$(CC) $(FLAGS) $^ -o $@
-	$(RM) $(OBJ)
+%.o: %.cpp
+	$(CC) $(FLAGS) -c $< -o $@
 
+$(NAME) : $(OBJ)
+	$(CC) $^ -o $@
+	make clean
 clean :
 	$(RM) $(OBJ)
 

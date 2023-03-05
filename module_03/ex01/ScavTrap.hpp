@@ -5,10 +5,21 @@
 #ifndef EX01_SCAVTRAP_HPP
 #define EX01_SCAVTRAP_HPP
 
+#include "ClapTrap.hpp"
 
+class ScavTrap : public ClapTrap {
 
-class ScavTrap {
+public:
+    ScavTrap();
+    ScavTrap(const std::string &name);
+    ScavTrap(const ScavTrap &src);
+    ScavTrap & operator=(const ScavTrap &rhs);
+    ~ScavTrap();
 
+    void guardGate();
+    void attack(const std::string& target);
+    void takeDamage(unsigned int amount);
+    void beRepaired(unsigned int amount);
 };
 
 

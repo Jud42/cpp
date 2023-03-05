@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/04 10:39:42 by rmamison          #+#    #+#             */
+/*   Updated: 2023/03/04 10:40:58 by rmamison         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 //
 // Created by Raphael Mamison on 2/23/23.
 //
@@ -15,7 +27,8 @@
 #define YELLOW  "\033[33m"
 #define BLUE    "\033[34m"
 
-#define SCLAP "\033[34m<SLAPTRAP> \033[0m"
+#define CLAP "\033[31m<CLAPTRAP> \033[0m"
+#define SCAV "\033[33m<SCAVTRAP> \033[0m"
 
 class ClapTrap {
 public:
@@ -31,10 +44,11 @@ public:
     void beRepaired(unsigned int amount);
 
 protected:
+
     std::string _name;
-    int _Hit_points;
-    int _Energy_points;
-    int _Attack_damage;
+    unsigned int _Hit_points;
+    unsigned int _Energy_points;
+    unsigned int _Attack_damage;
 };
 
 #endif //EX00_CLAPTRAP_HPP

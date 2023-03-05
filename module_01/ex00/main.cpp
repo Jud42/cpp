@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/03 17:53:56 by rmamison          #+#    #+#             */
+/*   Updated: 2023/03/03 17:56:09 by rmamison         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
 int	main()
@@ -14,7 +26,6 @@ int	main()
 	randomChump("random_zombie");
 
 	//destructor zombie 
-	std::cout << "new_zombie: Destroyed!" << std::endl;
 	delete new_z;
 	return 0;
 }

@@ -1,23 +1,35 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rmamison <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/03/03 17:56:39 by rmamison          #+#    #+#              #
+#    Updated: 2023/03/04 10:18:42 by rmamison         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-NAME = Harl
+NAME = HARL
 
 SRC = $(wildcard ./*.cpp)
 
 CC = c++ -std=c++98
 
-FLAGS = -g -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 RM = rm -rf
 
 OBJ = $(SRC:%.cpp=%.o)
 
-
-$(NAME) : $(OBJ)
-	$(CC) $(FLAGS) $^ -o $@
-	$(RM) $(OBJ)
-
 all : $(NAME)
 
+%.o: %.cpp
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(NAME) : $(OBJ)
+	$(CC) $^ -o $@
+	make clean
 clean :
 	$(RM) $(OBJ)
 

@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:28:32 by rmamison          #+#    #+#             */
-/*   Updated: 2023/02/24 17:24:35 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/02/24 19:31:41 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,12 @@ int	main()
 			std::cout << "exit" << std::endl;
 			exit (0);
 		}
-		if (input == "ADD") p.add_();
-		else if (input == "SEARCH") p.search_();
-		else if (input == "EXIT") p.exit_();
+		if (input == "ADD") 
+			p.add_();
+		else if (input == "SEARCH") 
+			p.search_();
+		else if (input == "EXIT") 
+			p.exit_();
 		else
 			std::cout << "Error: command not recongnized" << std::endl;
 		std::cout << "(ADD) (SEARCH) (EXIT)" << std::endl;
