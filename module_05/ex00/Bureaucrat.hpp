@@ -6,6 +6,9 @@
 #define _BUREAUCRAT_HPP
 #include <iostream>
 
+#define MINIGRADE 150
+#define MAXGRADE 1
+
 class Bureaucrat {
 
 public:
@@ -20,10 +23,20 @@ public:
     void riseGrade();
     void deGrade();
 
+    class GradeTooHighException : public std::exception {
+        public:
+            virtual const char *what() const throw();
+    };
+    class GradeTooLowException : public std::exception {
+        public:
+            virtual const char *what() const throw();
+    };
+
 private:
-    std::string _name;
+    const std::string _name;
     int _grade;
 };
 
+std::ostream &operator<<(std::ostream & os, const Bureaucrat &obj);
 
 #endif //_BUREAUCRAT_HPP
