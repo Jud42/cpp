@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/10 15:00:09 by rmamison          #+#    #+#             */
+/*   Updated: 2023/03/10 16:52:25 by rmamison         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
@@ -56,6 +67,10 @@ const char *Bureaucrat::GradeTooHighException::what() const throw() {
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
     return "Exception: Too Low Grade";
+}
+
+void Bureaucrat::signForm(const Form &form) const {
+	form.beSigned(*this);
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj) {
