@@ -1,6 +1,14 @@
-//
-// Created by Raphael Mamison on 3/4/23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/10 13:51:02 by rmamison          #+#    #+#             */
+/*   Updated: 2023/03/10 13:57:46 by rmamison         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
@@ -33,5 +41,3 @@ void WrongAnimal::makeSound() const {
 }
 
 std::string WrongAnimal::getType() const { return _type; }
-
-

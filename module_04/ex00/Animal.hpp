@@ -1,27 +1,35 @@
-//
-// Created by Raphael Mamison on 3/4/23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/10 11:46:50 by rmamison          #+#    #+#             */
+/*   Updated: 2023/03/10 11:49:35 by rmamison         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef MODULE_04_ANIMAL_HPP
-#define MODULE_04_ANIMAL_HPP
+#ifndef _ANIMAL_HPP_
+#define _ANIMAL_HPP_
 
 #include <iostream>
 
 class Animal {
 
-public:
+	public:
 
-    Animal();
-    Animal(const Animal &src);
-    Animal & operator=( const Animal &rhs );
-    virtual ~Animal();
+		Animal();
+		Animal(const Animal &src);
+		Animal & operator=( const Animal &rhs );
+		virtual ~Animal();
 
-    std::string getType() const;
-    virtual void makeSound() const;
+		std::string getType() const;
+		virtual void makeSound() const;
 
-protected:
+	protected:
 
-    std::string type;
+    	std::string type;
 };
 
 #endif //MODULE_04_ANIMAL_HPP
