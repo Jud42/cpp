@@ -6,13 +6,9 @@
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 11:04:31 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/04 11:39:34 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/03/09 19:41:51 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//
-// Created by Raphael Mamison on 2/24/23.
-//
 
 #include "FragTrap.hpp"
 

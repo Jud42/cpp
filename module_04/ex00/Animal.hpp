@@ -6,7 +6,7 @@
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:46:50 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/10 11:49:35 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:49:09 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Animal {
 
 	protected:
 
-    	std::string type;
+    	std::string _type;
 };
 
 #endif //MODULE_04_ANIMAL_HPP

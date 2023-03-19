@@ -6,7 +6,7 @@
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 20:15:25 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/10 14:13:45 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/03/18 12:29:47 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ Brain::Brain() {
 
 // Implémentation du constructeur de copie
 Brain::Brain(const Brain &src) {
-    for (int i = 0; i < 100; i++) {
-        this->_ideas[i] = src._ideas[i];
-    }
+	*this = src;
     std::cout << "<BRAIN> Copy Constructor is called!" << std::endl;
 }
 

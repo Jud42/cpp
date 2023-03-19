@@ -1,6 +1,14 @@
-//
-// Created by Raphael Mamison on 2/23/23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/09 16:15:34 by rmamison          #+#    #+#             */
+/*   Updated: 2023/03/09 16:23:34 by rmamison         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef EX00_CLAPTRAP_HPP
 #define EX00_CLAPTRAP_HPP
@@ -30,9 +38,9 @@ public:
 
 private:
     std::string _name;
-    int _Hit_points;
-    int _Energy_points;
-    int _Attack_damage;
+    unsigned int _Hit_points;
+    unsigned int _Energy_points;
+    unsigned int _Attack_damage;
 };
 
 

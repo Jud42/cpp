@@ -6,7 +6,7 @@
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 20:20:25 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/04 22:07:49 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:59:51 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cat::Cat() : Animal(), _brain(new Brain) {
 
-    _type = "Cat";
+	_type = "Cat";
     std::cout << "Default Constructor [" << _type << "] is Called!" << std::endl;
 }
 
@@ -27,7 +27,6 @@ Cat::~Cat() {
 
 Cat::Cat(const Cat &src) : Animal(src), _brain(src._brain) {
 
-    _type = "Cat";
     std::cout << "Copy Constructor [" << _type << "] is Called!" << std::endl;
 }
 

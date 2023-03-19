@@ -6,7 +6,7 @@
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:59:45 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/10 16:07:05 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:49:23 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,17 @@
 #include <ostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form {
 
     public:
-        //canonical
+        //canonical 
+		//operator assignment missing cause attributs private & 
+		//the only solution is to use std::swap but we can't use <algorithm> header
 		Form();
-		Form(const std::string &name, int &grade_sign, int &grade_exec)
+		Form(const std::string &name, int grade_sign, int grade_exec);
 		Form(const Form &src);
-		Form operator=( const Form &rhs );
         virtual ~Form();
 		
 		//accessors
@@ -35,20 +38,20 @@ class Form {
         void beSigned(const Bureaucrat &bureaucrat);
 
 		//exceptions redefinition
-    	class GradeTooHighException : std::exception {
+    	class GradeTooHighException : public std::exception {
         	public:
-            	virtual const char *what() const throw();
+            	const char *what() const throw();
     	};
-    	class GradeTooLowException : std::exception {
+    	class GradeTooLowException : public std::exception {
         	public:
-            	virtual const char *what() const throw();
+            	const char *what() const throw();
     	};
 
     private:
         const std::string _name;
         bool _sign;
-        int _grade_sign;
-        int _grade_exec;
+        const int _grade_sign;
+        const int _grade_exec;
 
 };
 

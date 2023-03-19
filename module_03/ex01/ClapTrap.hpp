@@ -6,13 +6,9 @@
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 10:39:42 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/04 10:40:58 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:14:59 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//
-// Created by Raphael Mamison on 2/23/23.
-//
 
 #ifndef EX00_CLAPTRAP_HPP
 #define EX00_CLAPTRAP_HPP
@@ -37,9 +33,9 @@ public:
     ClapTrap(const std::string &name);
     ClapTrap(const ClapTrap &src);
     ClapTrap & operator=(const ClapTrap &rhs);
-    ~ClapTrap();
+    virtual ~ClapTrap();
 
-    void attack(const std::string& target);
+    virtual void attack(const std::string& target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 

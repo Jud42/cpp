@@ -1,8 +1,18 @@
-//
-// Created by Raphael Mamison on 2/21/23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/09 12:47:10 by rmamison          #+#    #+#             */
+/*   Updated: 2023/03/09 13:06:52 by rmamison         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::_bits_fractional = 8; 
 
 Fixed::Fixed()
     : _value(0) {
@@ -12,7 +22,7 @@ Fixed::Fixed()
 
 Fixed::~Fixed() {
 
-    std::cout << "Default Deconstructor called" << std::endl;
+    std::cout << "Deconstructor called" << std::endl;
 }
 
 Fixed::Fixed(const int i) {
@@ -43,13 +53,11 @@ Fixed &Fixed::operator=(const Fixed &rhs) {
 }
 
 int Fixed::getRawBits() const {
-
     return _value;
 }
 
 void Fixed::setRawBits(int const raw) {
 
-    std::cout << "setRawBits mumber function called" << std::endl;
     _value = raw;
 }
 

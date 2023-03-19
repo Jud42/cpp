@@ -6,13 +6,13 @@
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:00:09 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/10 16:52:25 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:59:56 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-void parse_exception(int grade) {
+static void parse_exception(int grade) {
     if (grade > MINIGRADE)
         throw Bureaucrat::GradeTooLowException();
     else if (grade < MAXGRADE)
@@ -69,7 +69,7 @@ const char *Bureaucrat::GradeTooLowException::what() const throw() {
     return "Exception: Too Low Grade";
 }
 
-void Bureaucrat::signForm(const Form &form) const {
+void Bureaucrat::signForm(Form &form) {
 	form.beSigned(*this);
 }
 

@@ -6,13 +6,13 @@
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:54:46 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/10 12:06:42 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:58:50 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() : type("ANIMAL") {
+Animal::Animal() : _type("ANIMAL") {
 
     std::cout << "<ANIMAL> Default Constructor is Called!" << std::endl;
 }
@@ -23,7 +23,7 @@ Animal::~Animal() {
 }
 
 
-Animal::Animal(const Animal &src) : type(src.type) {
+Animal::Animal(const Animal &src) : _type(src._type) {
 
     std::cout << "<ANIMAL> Copy Constructor is Called!" << std::endl;
 }
@@ -31,7 +31,7 @@ Animal::Animal(const Animal &src) : type(src.type) {
 Animal &Animal::operator=(const Animal &rhs) {
 
     if (this != &rhs)
-        this->type = rhs.type;
+        this->_type = rhs._type;
     return *this;
 }
 
@@ -40,6 +40,6 @@ void Animal::makeSound() const {
     std::cout << "Im Animal! What kind? I dont know!" << std::endl;
 }
 
-std::string Animal::getType() const { return type; }
+std::string Animal::getType() const { return _type; }
 
 

@@ -6,7 +6,7 @@
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:08:02 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/10 14:13:35 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/03/18 11:29:58 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,3 @@ void Animal::makeSound() const {
 }
 
 std::string Animal::getType() const { return _type; }
-
-
