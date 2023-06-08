@@ -13,11 +13,13 @@
 #ifndef _ARRAY_HPP_
 #define _ARRAY_HPP_
 
+#include <iostream>
+
 template< typename T >
 class Array {
 
 	public:
-		Array< T >() : _arraysize(), _array(nullptr) {}
+		Array< T >() : _arraysize(), _array(NULL) {}
 		
 		Array< T >(unsigned int n) : _arraysize(n), _array(new T[n]()) {}
 		
@@ -28,6 +30,8 @@ class Array {
 		Array< T > & operator=(Array< T > const & other) {
 			if (this != &other) {
 				this->_arraysize = other._arraysize;
+				if (this->_array != NULL)
+					delete[] this->_array;
 				this->_array = new T[this->_arraysize];
 				for (unsigned int i = 0; i < this->_arraysize; i++)
 					this->_array[i] = other._array[i];
@@ -37,25 +41,25 @@ class Array {
 
 		T & operator[](int index) {
 			if (index < 0 || index >= (int)this->_arraysize) {
-				throw std::exception();
+				throw IndException();
 			}
 			return _array[index];
 		}
 
 		~Array< T >() {
-			if (this->_array != nullptr)
+			if (this->_array != NULL)
 				delete[] this->_array;
 		}
 		unsigned int size() const {
 			return _arraysize;
 		}
 
-		/*class indexception : public std::exception {
+		class IndException : public std::exception {
 			public:
-				virtual const char* what() const {
-        			return "std::indexeption: bad index";
-    			}
-		}*/
+				const char* what() const throw() {
+        				return "std::IndException: bad index";
+    				}
+		};
 
 	private:
 		unsigned int _arraysize;

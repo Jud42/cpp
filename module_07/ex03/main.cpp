@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Array.hpp"
+#include <cstdlib>
 
 #define MAX_VAL 750
 
@@ -7,7 +8,7 @@ int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
+    std::srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
         const int value = rand();
@@ -43,7 +44,9 @@ int main(int, char**)
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+	 std::cerr << e.what() << "index: " 
+		<< e.getBadIndex() << '\n';
+
     }
 	*/
     for (int i = 0; i < MAX_VAL; i++)
