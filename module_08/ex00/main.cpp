@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -23,4 +24,18 @@ int	main()
 			<< std::endl;
 	}
 	return 0;
+=======
+#include "easyfind.hpp"
+#include <list>
+#include <iostream>
+
+int main() {
+	
+	std::list< int > a;
+	
+	a.push_back(3);
+	a.push_back(6);
+	a.push_back(9);
+	easyfind(a, 9);
+>>>>>>> 58db9f0b099368f055f935243e73863a91d89a41
 }
