@@ -4,6 +4,7 @@
 #include <stack>
 #include <iostream>
 #include <sstream>
+#include <cstdlib>
 
 class RPN {
 	
@@ -12,7 +13,7 @@ class RPN {
 		~RPN();
 
 	private:
-		std::stack< std::string > _stack;
+		std::stack< int > _stk;
 };
 
 #endif
