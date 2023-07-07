@@ -7,11 +7,12 @@
 #include <list>
 #include <cstdlib>
 #include <cstring>
+#include <algorithm>
 
 class PmergeMe	{
 
 	public:
-		PmergeMe(const int &ac, char** av);
+		PmergeMe(char** av);
 		
 		/*
 		PmergeMe(const PmergeMe &src);
@@ -21,14 +22,22 @@ class PmergeMe	{
 		~PmergeMe();
 
 
-		void mergeSortVect(std::vector<int> &);
-		void mergeInsertVect(std::vector<int> &, 
+		//merge-insert vector
+		void mergeSort(std::vector<int> &);
+		void merge(std::vector<int> &, 
 			std::vector<int> &,std::vector<int> &);
-		//std::list<int> mergeSortList(void);
+		void insertion(std::vector<int> &);
 
+		//merge-insert list
+		void mergeSort(std::list<int> &);
+		void merge(std::list<int> &, 
+			std::list<int> &,std::list<int> &);
+		void insertion(std::list<int> &);
+
+		//print element
 		void printData(std::string str, std::vector<int> &);
 
-		int	_size;
+	//private:
 		std::vector<int> _data_vect;
 		std::list<int>	_data_list;
 
