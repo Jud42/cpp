@@ -4,9 +4,10 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
-#include <list>
+#include <deque>
 #include <cstdlib>
 #include <cstring>
+#include <ctime>
 #include <algorithm>
 
 class PmergeMe	{
@@ -21,26 +22,27 @@ class PmergeMe	{
 		
 		~PmergeMe();
 
-
-		//merge-insert vector
+		std::vector<int> &getDataVect(void);
+		std::deque<int> &getDataDeque(void);
+	
 		void mergeSort(std::vector<int> &);
+		void mergeSort(std::deque<int> &);
 		void merge(std::vector<int> &, 
 			std::vector<int> &,std::vector<int> &);
+		void merge(std::deque<int> &, 
+			std::deque<int> &,std::deque<int> &);
 		void insertion(std::vector<int> &);
+		void insertion(std::deque<int> &);
+	
+	private:
+		std::vector<int> _data_v;
+		std::deque<int>	_data_d;
+		double time_exec_v;
+		double time_exec_d;
 
-		//merge-insert list
-		void mergeSort(std::list<int> &);
-		void merge(std::list<int> &, 
-			std::list<int> &,std::list<int> &);
-		void insertion(std::list<int> &);
+};	
 
-		//print element
-		void printData(std::string str, std::vector<int> &);
-
-	//private:
-		std::vector<int> _data_vect;
-		std::list<int>	_data_list;
-
-};
+template<typename T>
+void printData(std::string str, T &data);
 
 #endif
