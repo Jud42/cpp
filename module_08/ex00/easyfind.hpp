@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:23:00 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/28 10:34:49 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/07/19 11:02:04 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +20,10 @@
 template< typename T >
 void easyfind(T data, int digit)
 {
-	int *it1 = std::find(data.begin(), 
-	data.end(), digit);
-	if (it1 != data.end())
-		std::cout << "FIND: " << *it1 << std::endl;
+	typename T::iterator it = std::find(data.begin(), data.end(), digit);
+	if (it == data.end())
+		throw std::runtime_error("Error: Invalid value");
+	std::cout << "easyfind: " << *it << std::endl;
 }
 
 #endif

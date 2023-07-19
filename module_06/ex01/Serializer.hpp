@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Convert.hpp                                        :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 13:30:39 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/20 23:36:28 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/07/18 12:06:26 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _CONVERT_HPP_
-#define _CONVERT_HPP_
+#ifndef _SERIALIZER_HPP_
+#define _SERIALIZER_HPP_
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <cstring>
-#include <cmath>
+#include "Data.hpp"
+#include <cstdint>
 
-#define ERROR 0
-#define CHAR 1
-#define INT 2
-#define FLOAT 3
-#define DOUBLE 4
-#define INFINI_NAN 5
-
-
-class Convert {
-
-	private:
-		Convert();
-		Convert(const Convert &other);
-		Convert & operator=( const Convert & rhs );
-		~Convert();
+class Serializer {
 
 	public:
-		static int convertValue(std::string &s);
-	
+		Serializer();
+		Serializer(int i);
+		Serializer(const Serializer &other);
+		Serializer & operator=( const Serializer & rhs );
+		~Serializer();
 
+
+		static uintptr_t	serialize(Data *ptr);
+		static Data	*deserialize(uintptr_t raw);
 };
 
 #endif

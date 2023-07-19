@@ -6,11 +6,11 @@
 #    By: rmamison <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 17:22:52 by rmamison          #+#    #+#              #
-#    Updated: 2023/06/08 14:00:48 by rmamison         ###   ########.fr        #
+#    Updated: 2023/07/18 12:04:24 by rmamison         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Prog
+NAME = serialisation
 
 SRC = $(wildcard ./*.cpp)
 

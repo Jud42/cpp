@@ -37,8 +37,6 @@ class PmergeMe	{
 	private:
 		std::vector<int> _data_v;
 		std::deque<int>	_data_d;
-		double time_exec_v;
-		double time_exec_d;
 
 };	
 

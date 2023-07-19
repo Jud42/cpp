@@ -14,6 +14,7 @@ void printData(std::string str, T &data) {
 	}
 	std::cout << std::endl;
 }
+
 //explicit instanciation for usage from main
 template void printData(std::string str, std::vector<int> &data);
 template void printData(std::string str, std::deque<int> &data);

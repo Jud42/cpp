@@ -6,32 +6,26 @@
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 10:24:46 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/21 11:12:50 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/07/18 12:06:10 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Data.hpp"
+#include "Serializer.hpp"
 #include <iostream>
-
-uintptr_t	serialize(Data *ptr) {
-	return reinterpret_cast<uintptr_t>(ptr);
-}
-
-Data	*deserialize(uintptr_t raw) {
-	return reinterpret_cast<Data *>(raw);
-}
 
 int main()
 {
-	Data *a = new Data(42);
+	Data a;
+	a.i = 1;
 
+	
+	std::cout << "Address: " << &a << " => Val: "<< a.i << std::endl;
+	uintptr_t val_serial = Serializer::serialize(&a);
 	//value before deserialise
-	std::cout << "Val bef: " << a->_i << std::endl;
-	Data *b = deserialize(serialize(a));
+	Data *val_deserial = Serializer::deserialize(val_serial);
 	//value after deserialise
-	std::cout << "Val af: " << b->_i << std::endl;
-	std::cout << "Data a: " << a << std::endl;
-	std::cout << "Data b: " << b << std::endl;
+	std::cout << "After deserialize" << std::endl;
+	std::cout << "Address: " << val_deserial << " => Val: "<< val_deserial->i << std::endl;
 
 	return 0;
 }

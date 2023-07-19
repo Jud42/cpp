@@ -6,7 +6,7 @@
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 12:03:36 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/21 18:06:09 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/07/18 13:10:19 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void identify(Base* p) {
 	else if (dynamic_cast<C *>(p) != nullptr)
 		std::cout << "Type: C" << std::endl;
 	else
-		std::cout << "ByPTR::Identity::Unknown" << std::endl;
+		std::cout << "Error: Identity Unknown" << std::endl;
 }
 
 void identify(Base &p) {
@@ -67,7 +67,7 @@ void identify(Base &p) {
 	} catch (const std::bad_cast &e) {
 		i++;
 		if (i > 2)
-			std::cout << "ByREF::Identity::Unknown => " << e.what() << std::endl;
+			std::cout << "Error: Identity Unknown => " << e.what() << std::endl;
 		else
 			identify(p);
 	}
@@ -77,7 +77,6 @@ void identify(Base &p) {
 int	main() 
 {
 	Base	*ptr = nullptr;
-	Base	wrong;
 
 	for (int i = 0; i < 10; i++) {
 
@@ -89,8 +88,6 @@ int	main()
 			std::cout << "\n*---------IDENTITY BY REFERENCE-------------*";
 			std::cout << std::endl;
 			identify(*ptr);
-			//wrong test
-			//identify(wrong);
 		}
 	}
 	if (ptr != nullptr)

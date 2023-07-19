@@ -3,27 +3,6 @@
 
 #include <stack>
 #include <iostream>
-/*
-template< typename T >
-class MutantStack {
-
-	public:
-		bool empty() const { return _stack.empty(); }
-		size_t size() const { return _stack.size(); }
-		const T & top() const { return _stack.top(); }
-		void push(const T &val) { return _stack.push(val); }
-		void pop() { return _stack.pop(); }
-		
-		void test() { 
-			std::deque<T>& tmp = const_cast<std::deque<T>&>(_stack.c);
-		}
-	private:
-		std::stack< T > _stack;
-};
-*/
-
-
-
 
 template <typename T, typename C_type = std::deque<T> >
 class MutantStack : public std::stack<T, C_type>

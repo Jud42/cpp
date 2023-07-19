@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Convert.cpp                                        :+:      :+:    :+:   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 14:22:24 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/21 09:57:29 by rmamison         ###   ########.fr       */
+/*   Updated: 2023/07/18 11:02:14 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Convert.hpp"
+#include "ScalarConverter.hpp"
 
-Convert::Convert() {}
+ScalarConverter::ScalarConverter() {}
 
-Convert::~Convert() {}
+ScalarConverter::~ScalarConverter() {}
 
-Convert::Convert(const Convert &other) {(void) other;}
+ScalarConverter::ScalarConverter(const ScalarConverter &other) {(void) other;}
 
-Convert &Convert::operator=(const Convert & rhs) {
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter & rhs) {
 	(void) rhs;
 	return *this;
 }
@@ -59,7 +59,7 @@ static int handle_value(std::string &s) {
 }
 
 
-int	Convert::convertValue(std::string &s) {
+int	ScalarConverter::convert(std::string &s) {
 
 	std::string p_type[4] = {"char: ", "int: ", "float: ", "double: "};
 	std::string c_val = "";

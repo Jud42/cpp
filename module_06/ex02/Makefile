@@ -6,11 +6,11 @@
 #    By: rmamison <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 17:22:52 by rmamison          #+#    #+#              #
-#    Updated: 2023/06/08 14:00:59 by rmamison         ###   ########.fr        #
+#    Updated: 2023/07/18 13:09:15 by rmamison         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Prog
+NAME = base 
 
 SRC = $(wildcard ./*.cpp)
 

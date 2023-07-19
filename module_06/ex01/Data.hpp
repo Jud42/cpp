@@ -3,26 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmamison <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rmamison <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/19 13:30:39 by rmamison          #+#    #+#             */
-/*   Updated: 2023/03/21 11:08:41 by rmamison         ###   ########.fr       */
+/*   Created: 2023/07/18 11:27:16 by rmamison          #+#    #+#             */
+/*   Updated: 2023/07/18 12:06:30 by rmamison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _DATA_HPP_
 #define _DATA_HPP_
 
-class Data {
+typedef struct s_data {
 
-	public:
-		Data();
-		Data(int i);
-		Data(const Data &other);
-		Data & operator=( const Data & rhs );
-		~Data();
-
-		int	_i;
-};
+	int i;
+} Data;
 
 #endif
