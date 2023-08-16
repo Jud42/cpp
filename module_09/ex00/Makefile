@@ -12,7 +12,8 @@
 
 NAME = btc
 
-SRC = $(wildcard ./*.cpp)
+SRC = BitcoinExchange.cpp \
+	main.cpp  
 
 CC = c++ 
 
@@ -29,7 +30,6 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CC) $^ -o $@
-	make clean
 
 clean :
 	$(RM) $(OBJ)

@@ -6,12 +6,26 @@ bool	isMsg_error(int flag, std::string &line) {
 		return false;
 	else if (flag == BAD_INPUT)
 		std::cout << "Error: bad input => " << line << std::endl;
+	else if (flag == EARLIER_DATE)
+		std::cout << "Error: EARLIER DATE => " << line << std::endl;
 	else if (flag == NEGATIVE_N)
 		std::cout << "Error: not a positive number." << std::endl;
 	else
 		std::cout << "Error: too large a number." << std::endl;
 	return true;
 }
+
+void BitcoinExchange::setStartDate(const std::string &date) {
+
+	std::istringstream ss(date);
+
+	ss >> this->start_date.tm_year;
+	if (ss.peek() == '-') ss.ignore();
+	ss >> this->start_date.tm_mon;
+	if (ss.peek() == '-') ss.ignore();
+	ss >> this->start_date.tm_mday;
+}
+
 BitcoinExchange::BitcoinExchange() {
 
 	std::string line;
@@ -27,9 +41,52 @@ BitcoinExchange::BitcoinExchange() {
 			map[key] = value;
 		}
 	}
+	std::map<std::string, float>::iterator it = map.begin();
+	if (it != map.end())
+		setStartDate(it->first);
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) {
+	
+	*this = other;
+}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &rhs) {
+
+	if (this != &rhs) { 
+		this->map = rhs.getMap();
+		this->start_date = rhs.getStartDate();
+	}
+	return *this;
 }
 
 BitcoinExchange::~BitcoinExchange() {}
+
+std::map<std::string, float> BitcoinExchange::getMap() const {
+
+	return this->map;
+}
+
+std::tm BitcoinExchange::getStartDate() const { return this->start_date; }
+
+bool	BitcoinExchange::isEarlierDate(const std::string &date) {
+		
+	std::istringstream ss(date);
+	std::tm tminfo;
+
+	ss >> tminfo.tm_year;
+	if (ss.peek() == '-') ss.ignore();
+	ss >> tminfo.tm_mon;
+	if (ss.peek() == '-') ss.ignore();
+	ss >> tminfo.tm_mday;
+
+	if (tminfo.tm_year - this->start_date.tm_year < 0 
+		|| tminfo.tm_mon - this->start_date.tm_mon < 0
+			|| tminfo.tm_mday - this->start_date.tm_mday < 0)
+				return true;
+	return false;
+}
+
 
 int	BitcoinExchange::formatDate(std::string &date) {
 
@@ -37,11 +94,13 @@ int	BitcoinExchange::formatDate(std::string &date) {
 	const char *res = strptime(date.c_str(), "%Y-%m-%d", &t);
 	if (res == NULL || *res != '\0')
 		return BAD_INPUT;
+	else if (this->isEarlierDate(date))
+		return EARLIER_DATE;
 	return 0;
 }
 
 int	BitcoinExchange::formatPipe(std::string &pipe) {
-	return ((pipe == "|") ? 0 : BAD_INPUT);
+	return (pipe == "|" ? 0 : BAD_INPUT);
 }
 
 int	BitcoinExchange::formatValue(std::string &value) {
