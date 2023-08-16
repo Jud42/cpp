@@ -6,12 +6,13 @@
 #    By: rmamison <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 17:22:52 by rmamison          #+#    #+#              #
-#    Updated: 2023/06/08 14:25:16 by rmamison         ###   ########.fr        #
+#    Updated: 2023/08/16 16:37:48 by rmamison         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = PmergeMe 
-SRC = $(wildcard ./*.cpp)
+SRC = PmergeMe.cpp \
+	 main.cpp 
 
 CC = c++ 
 

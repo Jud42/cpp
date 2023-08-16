@@ -12,7 +12,13 @@ class RPN {
 		RPN(std::string str);
 		~RPN();
 
+		std::stack<int> getStk() const;
+
 	private:
+		RPN();
+		RPN(const RPN &other);
+		RPN& operator=(const RPN &rhs);
+
 		std::stack< int > _stk;
 };
 

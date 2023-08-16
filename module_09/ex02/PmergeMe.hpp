@@ -2,6 +2,7 @@
  #define _PMERGEME_HPP_
 
 #include <iostream>
+#include <iomanip>
 #include <sstream>
 #include <vector>
 #include <deque>
@@ -9,21 +10,18 @@
 #include <cstring>
 #include <ctime>
 #include <algorithm>
+#include <sys/time.h>
 
 class PmergeMe	{
 
 	public:
 		PmergeMe(char** av);
-		
-		/*
-		PmergeMe(const PmergeMe &src);
-		PmergeMe & operator=(const PmergeMe &rhs);
-		*/
-		
 		~PmergeMe();
 
-		std::vector<int> &getDataVect(void);
-		std::deque<int> &getDataDeque(void);
+		std::vector<int>& getDataVect(void);
+		std::deque<int>& getDataDeque(void);
+	
+
 	
 		void mergeSort(std::vector<int> &);
 		void mergeSort(std::deque<int> &);
@@ -35,6 +33,10 @@ class PmergeMe	{
 		void insertion(std::deque<int> &);
 	
 	private:
+		PmergeMe();
+		PmergeMe(const PmergeMe &src);
+		PmergeMe & operator=(const PmergeMe &rhs);
+		
 		std::vector<int> _data_v;
 		std::deque<int>	_data_d;
 

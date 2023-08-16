@@ -36,25 +36,24 @@ PmergeMe::PmergeMe(char** av) {
 	}
 }
 
-/*
-PmergeMe::PmergeMe(const PmergeMe &src) 
-	: _size(src._size), _data(src._data) {}
+
+PmergeMe::PmergeMe() : _data_v(), _data_d() {}
+PmergeMe::PmergeMe(const PmergeMe &src) { *this = src; } 
 
 PmergeMe & PmergeMe::operator=(const PmergeMe &rhs) {
 
 	if (this != &rhs) {
 		
-		this->_data = rhs._data;
-		this->_size = rhs._size;
+		this->_data_v = const_cast<PmergeMe&>(rhs).getDataVect();
+		this->_data_d = const_cast<PmergeMe&>(rhs).getDataDeque();
 	}
 	return *this;
 }
-*/
 
 PmergeMe::~PmergeMe() {}
 
-std::vector<int> & PmergeMe::getDataVect(void) { return this->_data_v; }
-std::deque<int> & PmergeMe::getDataDeque(void) { return this->_data_d; }
+std::vector<int>& PmergeMe::getDataVect(void) { return _data_v; }
+std::deque<int>& PmergeMe::getDataDeque(void) { return _data_d; }
 
 void	PmergeMe::insertion(std::deque<int> &data) {
 

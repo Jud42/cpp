@@ -46,3 +46,15 @@ RPN::RPN(std::string str) {
 }
 
 RPN::~RPN() {}
+
+std::stack<int> RPN::getStk() const { return _stk; }
+
+RPN::RPN() : _stk() {}
+RPN::RPN(const RPN &other) { *this = other; }
+
+RPN& RPN::operator=(const RPN &rhs) {
+
+	if (this != &rhs)  
+		this->_stk = rhs.getStk();
+	return *this;
+}

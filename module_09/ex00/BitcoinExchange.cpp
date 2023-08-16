@@ -136,7 +136,7 @@ int	BitcoinExchange::displayChange(std::string &line) {
 	size_t pos = line.find(" ");
 	while (pos != std::string::npos && ++i < 3)
 		pos = line.find(" ", pos + 1);
-	if (i > 2) 
+	if (i > 2 || !isprint(line[0])) 
 		return isMsg_error(BAD_INPUT, line);//code error format
 
 	func f[3] = {&BitcoinExchange::formatDate, 
@@ -150,7 +150,7 @@ int	BitcoinExchange::displayChange(std::string &line) {
 		i++;
 	}
 	std::map<std::string, float>::iterator it = map.find(word[0]);
-	float change;
+	float change = 0.0;
 	if (it != map.end()) 
 		change = it->second * std::atof(word[2].c_str());
 	else {
